@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 // import Nav from '../components/nav'
+import CloudinaryUploadWidget from '../components/cloudinary/UploadWidget'
+import CloudinaryGallery from '../components/cloudinary/Gallery'
 
 import { assetPrefix } from '../next.config'
 
@@ -15,6 +17,7 @@ const Home = () => (
       <link rel="apple-touch-icon" href="logo192.png" />
       <link rel="manifest" href={`${assetPrefix}/manifest.json`} />
       <title>MNM</title>
+      <script src="//widget.cloudinary.com/v2.0/global/all.js" type="text/javascript" />
     </Head>
     <style jsx global>{`
       body {
@@ -32,6 +35,8 @@ const Home = () => (
     <header className='header'>
       <h1>MNM</h1>
       <p>Supercut</p>
+      <CloudinaryUploadWidget />
+      <CloudinaryGallery />
     </header>
 
     <style jsx>{`
