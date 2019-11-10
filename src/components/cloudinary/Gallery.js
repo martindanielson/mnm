@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react'
+import { CloudinaryContext} from 'cloudinary-react'
+import cloudinary from 'cloudinary-core'
+import { Card, Icon, Image as Image } from 'semantic-ui-react'
+
+var cl = new cloudinary.Cloudinary({cloud_name: "mnm", secure: true});
 
 class CloudinaryGallery extends Component {
   constructor(props) {
@@ -20,21 +24,25 @@ class CloudinaryGallery extends Component {
   render() {
     return (
       <CloudinaryContext cloudName="mnm">
-        {
-          this.state.gallery.map(data => {
-            return (
-              <Image publicId={data.public_id} key={data.public_id}>
-                <Transformation
-                    crop="fill"
-                    gravity="faces"
-                    width="150"
-                    height="150"
-                    effect="sepia"
-                />
-              </Image>
-            )
-          })
-        }
+        <Card.Group itemsPerRow={4}>
+          {
+            this.state.gallery.map(data => {
+              return (
+                <Card raised key={data.public_id}>
+                  <Image src={cl.url(data.public_id, { quality: 60, crop: "fill", gravity: "faces", width: 300, height: 300 })} wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>Something</Card.Header>
+                    <Card.Meta>Something smaller</Card.Meta>
+                    <Card.Description>Longer info</Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Icon name="user" /> Hey
+                  </Card.Content>
+                </Card>
+              )
+            })
+          }
+        </Card.Group>
       </CloudinaryContext>
     )
   }

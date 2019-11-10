@@ -3,6 +3,7 @@ import Head from 'next/head'
 // import Nav from '../components/nav'
 import CloudinaryUploadWidget from '../components/cloudinary/UploadWidget'
 import CloudinaryGallery from '../components/cloudinary/Gallery'
+import { Container } from 'semantic-ui-react'
 
 import { assetPrefix } from '../next.config'
 
@@ -18,6 +19,7 @@ const Home = () => (
       <link rel="manifest" href="/manifest.json" />
       <title>MNM</title>
       <script src="//widget.cloudinary.com/v2.0/global/all.js" type="text/javascript" />
+      <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
     </Head>
     <style jsx global>{`
       body {
@@ -35,14 +37,13 @@ const Home = () => (
     <header className='header'>
       <h1>MNM</h1>
       <p>Supercut</p>
+    </header>
+    <Container>
       <CloudinaryUploadWidget />
       <CloudinaryGallery />
-    </header>
+    </Container>
 
     <style jsx>{`
-      .app {
-        text-align: center;
-      }
       .header {
         background-image: linear-gradient(to bottom right, #8c6f6f, #46465d);
         min-height: 100vh;
