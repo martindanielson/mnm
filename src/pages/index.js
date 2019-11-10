@@ -10,12 +10,12 @@ const Home = () => (
   <div className="app">
     <Head>
       <meta charSet="utf-8" />
-      <link rel="icon" href={`${assetPrefix}/favicon.ico`} />
+      <link rel="icon" href="/favicon.ico" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
       <meta name="description" content="MNM" />
-      <link rel="apple-touch-icon" href="logo192.png" />
-      <link rel="manifest" href={`${assetPrefix}/manifest.json`} />
+      <link rel="apple-touch-icon" href="/logo192.png" />
+      <link rel="manifest" href="/manifest.json" />
       <title>MNM</title>
       <script src="//widget.cloudinary.com/v2.0/global/all.js" type="text/javascript" />
     </Head>
